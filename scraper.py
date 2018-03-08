@@ -21,7 +21,7 @@ for restaurant in restaurants:
     
     print record, '------------'
 
-    scraperwiki.sqlite.save(['Name'], record)
+    scraperwiki.sql.save(['Name'], record)
 
 # for restaurant in restaurants:
 #     record = {}
