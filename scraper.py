@@ -14,13 +14,18 @@ restaurants = root.cssselect("div.content")
 for restaurant in restaurants:
     record = {}
     names = restaurant.cssselect("h2")
+    addresses = restaurant.cssselect("div.address")
+    postcodes = restaurant.cssselect("div.postcode")
     
     for name in names:
         record['Name'] = name.text
-        scraperwiki.sqlite.save(['Name'], record)
+    
+    for address in addresses:
+        record['Address'] = address.text
         
-    record['Address'] = restaurant("div.address").text
-    record['Postcode'] = restaurant("div.postcode").text
+    for postcode in postcodes:
+        record['Postcode'] = postcode.text
+
     record['Company'] = "Wagamama"
 
     print record, '------------'
