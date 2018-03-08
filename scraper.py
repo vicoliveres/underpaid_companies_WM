@@ -9,11 +9,13 @@ html = scraperwiki.scrape("https://www.wagamama.com/restaurants?q=west%20midland
 #
 # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-restaurants = root.cssselect("h2")
+restaurants = root.cssselect("div.content")
 
 for restaurant in restaurants:
     record = {}
-    record['Name'] = restaurant.text
+    record['Name'] = restaurant.children[1].text
+    record['Address'] = restaurant.children[3].text
+    record['Postcode'] = restaurant.children[3].children[1].text
     record['Company'] = "Wagamama"
     
     print record, '------------'
