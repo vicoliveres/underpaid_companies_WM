@@ -16,6 +16,7 @@ for restaurant in restaurants:
     names = restaurant.cssselect("h2")
     addresses = restaurant.cssselect("div.address")
     postcodes = restaurant.cssselect("div.postcode")
+    companies = "Wagamama"
     
     for name in names:
         record['Name'] = name.text
@@ -25,8 +26,9 @@ for restaurant in restaurants:
         
     for postcode in postcodes:
         record['Postcode'] = postcode.text
-
-    record['Company'] = "Wagamama"
+        
+    for company in companies:
+        record['Company'] = company
 
     print record, '------------'
 
