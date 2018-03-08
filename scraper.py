@@ -17,7 +17,7 @@ for restaurant in restaurants:
     address = restaurant.cssselect("div.address")
     postcode = restaurant.cssselect("div.postcode")
     company = "Wagamama"
-    record['Name'] = name.text
+    record['Name'] = name.text_content()
     record['Address'] = address.text
     record['Postcode'] = postcode.text
     record['Company'] = company
