@@ -13,7 +13,7 @@ restaurants = root.cssselect("div.content")
 
 for restaurant in restaurants:
     record = {}
-    name = restaurant.cssselect("h2")
+    name = restaurant.cssselect("h2").fromstring(restaurant)
     address = restaurant.cssselect("div.address")
     postcode = restaurant.cssselect("div.postcode")
     
