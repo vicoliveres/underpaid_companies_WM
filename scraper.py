@@ -13,9 +13,13 @@ restaurants = root.cssselect("div.content")
 
 for restaurant in restaurants:
     record = {}
-    record['Name'] = restaurant("children[1]").text
-    record['Address'] = restaurants.children[3].text
-    record['Postcode'] = restaurants.children[3].children[1].text
+    name = restaurant("h2")
+    address = restaurant("div.address")
+    postcode = restaurant("div.postcode")
+    
+    record['Name'] = name.text
+    record['Address'] = address.text
+    record['Postcode'] = postcode.text
     record['Company'] = "Wagamama"
     
     print record, '------------'
