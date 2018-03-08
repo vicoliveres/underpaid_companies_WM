@@ -13,7 +13,8 @@ restaurants = root.cssselect("div.content")
 
 for restaurant in restaurants:
     record = {}
-    record['Name'] = restaurant.cssselect("h2").scraperwiki.text
+    name = restaurant.cssselect("h2")
+    record['Name'] = name.text
     record['Address'] = restaurant("div.address").text
     record['Postcode'] = restaurant("div.postcode").text
     record['Company'] = "Wagamama"
