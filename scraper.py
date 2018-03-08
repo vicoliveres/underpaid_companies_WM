@@ -9,22 +9,31 @@ html = scraperwiki.scrape("https://www.wagamama.com/restaurants?q=west%20midland
 #
 # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-restaurants = root.cssselect("div.content")
+restaurants = root.cssselect("h2")
 
 for restaurant in restaurants:
     record = {}
-    name = restaurant.cssselect("h2")
-    address = restaurant.cssselect("div.address")
-    postcode = restaurant.cssselect("div.postcode")
-    company = "Wagamama"
-    record['Name'] = name.text_content()
-    record['Address'] = address.text
-    record['Postcode'] = postcode.text
-    record['Company'] = company
-
+    record['Name'] = restaurant.text
+    record['Company'] = "Wagamama"
+    
     print record, '------------'
 
     scraperwiki.sqlite.save(['Name'], record)
+
+# for restaurant in restaurants:
+#     record = {}
+#     name = restaurant.cssselect("h2")
+#     address = restaurant.cssselect("div.address")
+#     postcode = restaurant.cssselect("div.postcode")
+#     company = "Wagamama"
+#     record['Name'] = name.text
+#     record['Address'] = address.text
+#     record['Postcode'] = postcode.text
+#     record['Company'] = company
+
+#     print record, '------------'
+
+#     scraperwiki.sqlite.save(['Name'], record)
 
 # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
