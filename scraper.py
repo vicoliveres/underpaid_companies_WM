@@ -16,7 +16,7 @@ for restaurant in restaurants:
     
     record['Name'] = restaurant.cssselect("h2")
     record['Address'] = restaurant.cssselect("div.address")
-    record['Postcode'] = restaurant.cssselect("//div['address']//div['postcode']")
+    record['Postcode'] = restaurant.cssselect("div['address']//div['postcode']")
     record['Company'] = "Wagamama"
     
     print record, '------------'
