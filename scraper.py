@@ -22,9 +22,9 @@ for restaurant in restaurants:
 #     record['Name'] = name
 #     record['Address'] = address
 #     record['Postcode'] = postcode
-    record['Name'] = restaurant.cssselect("h2").text
-    record['Address'] = restaurant.cssselect("div.address").text
-    record['Postcode'] = restaurant.cssselect("div.address div").text
+    record['Name'] = restaurant.cssselect("h2")[0].text
+    record['Address'] = restaurant.cssselect("div.address")[0].text
+    record['Postcode'] = restaurant.cssselect("div.address div")[0].text
     record['Company'] = "Wagamama"
     
     print record, '------------'
