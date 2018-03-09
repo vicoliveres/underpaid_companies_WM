@@ -11,10 +11,18 @@ html = scraperwiki.scrape("https://www.wagamama.com/restaurants?q=west%20midland
 root = lxml.html.fromstring(html)
 restaurants = root.cssselect("div.content")
 
+
 for restaurant in restaurants:
     record = {}
     
+    name = restaurant.xpath("h2")
+    address = restaurant.xpath("div.address")
+    postcode = restaurant.xpath("div[@address]//div")
+    
     record['Full restaurant'] = restaurant.text
+    record['Name'] = name.text
+    record['Address'] = address.text
+    record['Postcode'] = postcode.text
 #     record['Name'] = restaurant.cssselect("h2").text
 #     record['Address'] = restaurant.cssselect("div.address").text
 #     record['Postcode'] = restaurant.cssselect("div.address div").text
