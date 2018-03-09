@@ -3,6 +3,7 @@
 
 import scraperwiki
 import lxml.html
+import xpath
 #
 # Read in a page
 html = scraperwiki.scrape("https://www.wagamama.com/restaurants?q=west%20midlands")
