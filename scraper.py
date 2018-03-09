@@ -15,14 +15,14 @@ for restaurant in restaurants:
     record = {}
     
     record['Full restaurant'] = restaurant.text
-    record['Name'] = restaurant.cssselect("h2").text
-    record['Address'] = restaurant.cssselect("div.address").text
-    record['Postcode'] = restaurant.cssselect("div.address div").text
+#     record['Name'] = restaurant.cssselect("h2").text
+#     record['Address'] = restaurant.cssselect("div.address").text
+#     record['Postcode'] = restaurant.cssselect("div.address div").text
     record['Company'] = "Wagamama"
     
     print record, '------------'
 
-    scraperwiki.sqlite.save(['Name'], record)
+    scraperwiki.sqlite.save(['Full restaurant'], record)
 
 # for restaurant in restaurants:
 #     record = {}
