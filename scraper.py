@@ -22,6 +22,8 @@ for restaurant in restaurants:
 #     record['Name'] = name
 #     record['Address'] = address
 #     record['Postcode'] = postcode
+    print len(restaurant.cssselect("h2"))
+    
     record['Name'] = restaurant.cssselect("h2")[0].text
     record['Address'] = restaurant.cssselect("div.address")[0].text
     record['Postcode'] = restaurant.cssselect("div.address div")[0].text
