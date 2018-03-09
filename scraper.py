@@ -3,7 +3,6 @@
 
 import scraperwiki
 import lxml.html
-import xpath
 #
 # Read in a page
 html = scraperwiki.scrape("https://www.wagamama.com/restaurants?q=west%20midlands")
@@ -11,21 +10,21 @@ html = scraperwiki.scrape("https://www.wagamama.com/restaurants?q=west%20midland
 # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
 restaurants = root.cssselect("div.content")
-name = restaurants.xpath("h2")
-address = restaurants.xpath("div.address")
-postcode = restaurants.xpath("div[@address]//div")
+# name = restaurants.xpath("h2")
+# address = restaurants.xpath("div.address")
+# postcode = restaurants.xpath("div[@address]//div")
 
 
 for restaurant in restaurants:
     record = {}
     
     record['Full restaurant'] = restaurant.text
-    record['Name'] = name
-    record['Address'] = address
-    record['Postcode'] = postcode
-#     record['Name'] = restaurant.cssselect("h2").text
-#     record['Address'] = restaurant.cssselect("div.address").text
-#     record['Postcode'] = restaurant.cssselect("div.address div").text
+#     record['Name'] = name
+#     record['Address'] = address
+#     record['Postcode'] = postcode
+    record['Name'] = restaurant.cssselect("h2").text
+    record['Address'] = restaurant.cssselect("div.address").text
+    record['Postcode'] = restaurant.cssselect("div.address div").text
     record['Company'] = "Wagamama"
     
     print record, '------------'
