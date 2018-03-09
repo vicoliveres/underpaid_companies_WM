@@ -19,9 +19,9 @@ for restaurant in restaurants:
     record = {}
     
     record['Full restaurant'] = restaurant.text
-    record['Name'] = name.text
-    record['Address'] = address.text
-    record['Postcode'] = postcode.text
+    record['Name'] = name
+    record['Address'] = address
+    record['Postcode'] = postcode
 #     record['Name'] = restaurant.cssselect("h2").text
 #     record['Address'] = restaurant.cssselect("div.address").text
 #     record['Postcode'] = restaurant.cssselect("div.address div").text
